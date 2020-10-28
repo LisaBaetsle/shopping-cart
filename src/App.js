@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import './App.css';
+import RenderProducts from './components/RenderProducts'
+import RenderCart from './components/RenderCart'
+
+const PAGE_PRODUCTS = 'products';
+const PAGE_CART = 'cart';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
 
   const [products] = useState([
     {name: 'Custom Soap 1',
@@ -20,23 +25,21 @@ function App() {
     setCart([...cart, product]);
   }
 
+  
+
+  function navigateTo(nextPage) {
+    setPage(nextPage)
+  }
+
   return (
     <div>
       <header>
-        <button>Go to Cart ({cart.length})</button>
+        <button onClick={ () => navigateTo(PAGE_CART) }>Go to Cart ({cart.length})</button>
+        <button onClick={ () => navigateTo(PAGE_PRODUCTS) }>View products</button>
       </header>
-      <h1>Products</h1>
-      {products.map((product, index) => (
-        <div key={index}>
-        <h3>{ product.name }</h3>
-        <h4>{ product.price }</h4>
-        <img src={ product.image } alt={ product.name }/>
-        <button onClick={ addToCart }>Add to Cart</button>
-      </div>
-      ))}
-      
+      {page === PAGE_PRODUCTS ? <RenderProducts products={products} addToCart={addToCart}/> : null}
+      {page === PAGE_CART ? <RenderCart cart={cart} /> : null}
     </div>
-      
   );
 }
 
