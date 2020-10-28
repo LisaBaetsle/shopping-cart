@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RenderCart({ cart }) {
+export default function RenderCart({ cart, removeFromCart }) {
   console.log(cart);
   
   return (
@@ -11,7 +11,8 @@ export default function RenderCart({ cart }) {
         <h3>{ product.name }</h3>
         <h4>{ product.price }</h4>
         <img src={ product.image } alt={ product.name }/>
-
+        <p> { product.amount } </p>
+        <button onClick={ () => removeFromCart(product)}>X</button>
       </div>
       ))}
       </div>
