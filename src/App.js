@@ -14,11 +14,13 @@ function App() {
      price: '€9.99', 
      image: '',
      amount: 1,
+     id: 1,
     },
     {name: 'Custom Soap 2',
      price: '€8.99', 
      image: '',
      amount: 1,
+     id: 2,
     }
   ])
 
@@ -32,8 +34,20 @@ function App() {
     )
   }
 
-  function incrementAmount() {
-    setCart([ cart.amount + 1])
+  function incrementAmount(index) {
+    const newItems = [...products];
+
+	  products[index].amount++;
+
+	  setCart(newItems);
+  }
+
+  function decrementAmount(index) {
+    const newItems = [...products];
+
+	  products[index].amount--;
+
+	  setCart(newItems);
   }
 
   function navigateTo(nextPage) {
@@ -45,10 +59,9 @@ function App() {
       <header>
         <button onClick={ () => navigateTo(PAGE_CART) }>Go to Cart ({cart.length})</button>
         <button onClick={ () => navigateTo(PAGE_PRODUCTS) }>View products</button>
-        <button onClick={ () => incrementAmount }>Add 1</button>
       </header>
       {page === PAGE_PRODUCTS ? <RenderProducts products={products} addToCart={addToCart}/> : null}
-      {page === PAGE_CART ? <RenderCart cart={cart} removeFromCart={removeFromCart} /> : null}
+      {page === PAGE_CART ? <RenderCart cart={cart} removeFromCart={removeFromCart} incrementAmount={incrementAmount} decrementAmount={decrementAmount}/> : null}
     </div>
   );
 }
