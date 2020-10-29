@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RenderCart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
+export default function RenderCart({ cart, removeFromCart, incrementAmount, decrementAmount, navigateTo, PAGE_PRODUCTS }) {
   console.log(cart);
 
   function totalPriceProduct(index) {
@@ -68,7 +68,7 @@ export default function RenderCart({ cart, removeFromCart, incrementAmount, decr
       </label>
       <div className='buttons'>
         <button className='buttonCheckout'>CHECKOUT</button> <br />
-        <button className='buttonCheckout'>CONTINUE SHOPPING</button>
+        <button className='buttonCheckout' onClick={ () => navigateTo(PAGE_PRODUCTS) }>CONTINUE SHOPPING</button>
       </div>
       
       </div>

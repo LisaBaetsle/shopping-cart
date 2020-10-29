@@ -74,11 +74,10 @@ function App() {
     <div>
       <header>
         <button onClick={ () => navigateTo(PAGE_CART) }>Go to Cart ({qtyInCart})</button>
-        <button onClick={ () => navigateTo(PAGE_PRODUCTS) }>View products</button>
       </header>
       <main>
       {page === PAGE_PRODUCTS ? <RenderProducts products={products} addToCart={addToCart}/> : null}
-      {page === PAGE_CART ? <RenderCart products={products} cart={cart} removeFromCart={removeFromCart} incrementAmount={incrementAmount} decrementAmount={decrementAmount}/> : null}
+      {page === PAGE_CART ? <RenderCart products={products} cart={cart} removeFromCart={removeFromCart} incrementAmount={incrementAmount} decrementAmount={decrementAmount} navigateTo={navigateTo} PAGE_PRODUCTS={PAGE_PRODUCTS}/> : null}
       </main>
     </div>
   );
