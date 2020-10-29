@@ -14,9 +14,26 @@ export default function RenderCart({ cart, removeFromCart, incrementAmount, decr
   
   return (
     <div className='cart'>
+      <img src='./assets/test.svg' alt='progress'/>
       <h1>My Cart</h1>
-      <div className='underline'></div>
+      <div className='underlineTitle'></div>
       <div className='products'>
+        <div className='container-titles'>
+        <div></div>
+        <div className='titlesCart'>
+          <p>PRODUCTS</p>
+        </div>
+        <div>
+          <p>PRICE</p>
+        </div>
+        <div>
+          <p>QTY</p>
+        </div>
+        <div>
+          <p>TOTAL</p>
+        </div>
+        <div></div>
+        </div>
       {cart.map((product, index) => (
         <div className='product' key={index}>
           <div className='product-image'> 
@@ -29,21 +46,31 @@ export default function RenderCart({ cart, removeFromCart, incrementAmount, decr
             <p>€ { product.price }</p>
           </div>
           <div className='product-qty'> 
-            <button onClick={() => decrementAmount(index)}>-</button>
+            <button className='buttonInCart' onClick={() => decrementAmount(index)}>-</button>
             <p> { product.amount } </p>
-            <button onClick={() => incrementAmount(index)}>+</button>
+            <button className='buttonInCart' onClick={() => incrementAmount(index)}>+</button>
           </div>
           <div className='total-product-price'> 
             <p>€ { totalPriceProduct(index) } </p>
           </div>
           <div className='delete-product'> 
-            <button onClick={ () => removeFromCart(product)}>X</button>
+            <button className='buttonInCart' onClick={ () => removeFromCart(product)}>X</button>
           </div>
       </div>
       ))}
       </div>
+      <div className='underlineBottom'></div>
       <div className='checkout'>
-      <p>SUBTOTAL: { totalPriceCart }</p>
+        <p>SUBTOTAL: <span className='boldSpan'>€ { totalPriceCart }</span></p>
+        <label>
+          <input type="checkbox" name="terms" />
+            I agree to <span className='italicSpan'>Terms & Conditions</span>
+      </label>
+      <div className='buttons'>
+        <button className='buttonCheckout'>CHECKOUT</button> <br />
+        <button className='buttonCheckout'>CONTINUE SHOPPING</button>
+      </div>
+      
       </div>
       </div>
   );

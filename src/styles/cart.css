@@ -1,31 +1,60 @@
 @import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap");
 body {
   color: #4C5C59;
+  font-size: 18px;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .cart {
   margin: 0;
-  padding: 0;
+  padding: 70px 0 0 0;
   background-image: url("./assets/bgHeader@2x.png");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.cart img {
+  width: 650px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cart h1 {
   font-family: 'Baskervville', serif;
   font-size: 50px;
   padding-left: 10%;
+  padding-top: 60px;
 }
 
-.cart .underline {
+.cart .underlineTitle {
   margin-left: 10%;
   width: 300px;
   border-bottom: 3px solid #4C5C59;
 }
 
+.products {
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+.container-titles {
+  padding: 20px 10%;
+  display: grid;
+  grid-template-columns: 12% auto 20% 20% 12% 6%;
+}
+
 .product {
   padding: 20px 10%;
   display: grid;
-  grid-template-columns: 10% auto 20% 20% 12% 6%;
+  grid-template-columns: 12% auto 20% 20% 12% 6%;
+}
+
+.product-name p, .product-price p, .total-product-price p {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
 }
 
 .product-image img {
@@ -49,8 +78,60 @@ body {
   padding-top: 16px;
 }
 
+.buttonInCart {
+  background-color: white;
+  border: none;
+}
+
+.buttonInCart:hover {
+  color: #64617E;
+  cursor: pointer;
+}
+
+.underlineBottom {
+  margin-left: 50%;
+  margin-right: 10%;
+  width: 40%;
+  border-bottom: 3px solid #4C5C59;
+}
+
 .checkout {
   background-color: #F4F3F7;
+  padding: 0 10% 0 60%;
+}
+
+.checkout p {
   margin: 0;
+  padding: 40px 0;
+}
+
+.checkout .boldSpan {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+}
+
+.checkout label {
+  font-style: italic;
+}
+
+.checkout .italicSpan {
+  color: #64617E;
+}
+
+.checkout .buttonCheckout {
+  width: 220px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  background-color: #9A97B4;
+  color: white;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.buttons {
+  padding-top: 10px;
+  padding-bottom: 100px;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=cart.css.map */

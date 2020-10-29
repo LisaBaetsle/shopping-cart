@@ -3,30 +3,61 @@
 
 body{
   color: $drkGreen;
+  font-size: 18px;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding:0;
 }
 
 .cart {
   margin: 0;
-  padding: 0;
+  padding: 70px 0 0 0;
   background-image: url("./assets/bgHeader@2x.png");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+
+  img {
+    width: 650px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   h1 {
     @include title;
-    padding-left: 10%
+    padding-left: 10%;
+    padding-top: 60px;
   }
 
-  .underline {
+  .underlineTitle {
     margin-left: 10%;
     width: 300px;
     border-bottom: 3px solid $drkGreen;
   }
 }
 
+.products {
+  margin-top: 100px;
+  margin-bottom: 60px;
+  
+}
+
+.container-titles {
+  padding: 20px 10%;
+  display: grid;
+  grid-template-columns: 12% auto 20% 20% 12% 6%;
+}
+
 .product {
   padding: 20px 10%;
   display: grid;
-  grid-template-columns: 10% auto 20% 20% 12% 6%;
+  grid-template-columns: 12% auto 20% 20% 12% 6%;
+}
+
+.product-name, .product-price, .total-product-price {
+  p{
+    @include bold;
+  }
 }
 
 .product-image {
@@ -53,8 +84,58 @@ body{
   padding-top: 16px;
 }
 
+.buttonInCart {
+  background-color: white;
+  border: none;
+}
+
+.buttonInCart:hover {
+  color: $drkLila;
+  cursor: pointer;
+}
+
+.underlineBottom {
+  margin-left: 50%;
+  margin-right: 10%;
+  width: 40%;
+  border-bottom: 3px solid $drkGreen;
+}
+
 .checkout {
   background-color: $lgtLila;
+  padding: 0 10% 0 60%;
 
-  margin: 0;
+  p {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  .boldSpan {
+    @include bold;
+  }
+
+  label {
+    font-style: italic;
+  }
+
+  .italicSpan {
+    color: $drkLila;
+  }
+
+  .buttonCheckout {
+    width: 220px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: $mdmLila;
+    color: white;
+    margin-top: 30px;
+    font-size: 16px;
+  }
 }
+
+.buttons {
+  padding-top: 10px;
+  padding-bottom: 100px;
+  margin-bottom: 0;
+  }

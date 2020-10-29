@@ -6,3 +6,8 @@ $body: 'Baskervville', serif;
   font-family: 'Baskervville', serif;
   font-size: 50px;
 }
+
+@mixin bold {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+}
