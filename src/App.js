@@ -11,13 +11,13 @@ function App() {
 
   const [products] = useState([
     {name: 'Custom Soap 1',
-     price: '€9.99', 
+     price: '9.99', 
      image: '',
      amount: 1,
      id: 1,
     },
     {name: 'Custom Soap 2',
-     price: '€8.99', 
+     price: '8.99', 
      image: '',
      amount: 1,
      id: 2,
@@ -54,14 +54,20 @@ function App() {
     setPage(nextPage)
   }
 
+  let qtyInCart = cart.reduce(function(prev, current) {
+    return prev + +current.amount
+  }, 0);
+
   return (
     <div>
       <header>
-        <button onClick={ () => navigateTo(PAGE_CART) }>Go to Cart ({cart.length})</button>
+        <button onClick={ () => navigateTo(PAGE_CART) }>Go to Cart ({qtyInCart})</button>
         <button onClick={ () => navigateTo(PAGE_PRODUCTS) }>View products</button>
       </header>
+      <main>
       {page === PAGE_PRODUCTS ? <RenderProducts products={products} addToCart={addToCart}/> : null}
-      {page === PAGE_CART ? <RenderCart cart={cart} removeFromCart={removeFromCart} incrementAmount={incrementAmount} decrementAmount={decrementAmount}/> : null}
+      {page === PAGE_CART ? <RenderCart products={products} cart={cart} removeFromCart={removeFromCart} incrementAmount={incrementAmount} decrementAmount={decrementAmount}/> : null}
+      </main>
     </div>
   );
 }
