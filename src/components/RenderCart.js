@@ -4,7 +4,7 @@ export default function RenderCart({ products, cart, removeFromCart, incrementAm
   console.log(cart);
 
   function totalPriceProduct(index) {
-    return (products[index].price*products[index].amount)
+    return (cart[index].price*cart[index].amount)
   }
 
   let totalPriceCart = cart.reduce(function(prev, current) {

@@ -24,8 +24,17 @@ function App() {
     }
   ])
 
+  //DEEP COPY
+  function jsonCopy(src) {
+    return JSON.parse(JSON.stringify(src));
+  }
+
   function addToCart(product) {
-    setCart([...cart, product]);
+    if(cart.includes(product)){
+      console.log('product already exists');
+    } else {
+      setCart([...cart, product]);
+    }
   }
 
   function removeFromCart(productToRemove) {
@@ -35,17 +44,17 @@ function App() {
   }
 
   function incrementAmount(index) {
-    const newItems = [...products];
+    const newItems = jsonCopy([...cart]);
 
-	  products[index].amount++;
+	  newItems[index].amount++;
 
 	  setCart(newItems);
   }
 
   function decrementAmount(index) {
-    const newItems = [...products];
+    const newItems = jsonCopy([...cart]);
 
-	  products[index].amount--;
+	  newItems[index].amount--;
 
 	  setCart(newItems);
   }
@@ -57,6 +66,8 @@ function App() {
   let qtyInCart = cart.reduce(function(prev, current) {
     return prev + +current.amount
   }, 0);
+
+  console.log(products);
 
   return (
     <div>
