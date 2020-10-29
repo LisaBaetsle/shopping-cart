@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RenderCart({ products, cart, removeFromCart, incrementAmount, decrementAmount }) {
+export default function RenderCart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
   console.log(cart);
 
   function totalPriceProduct(index) {
@@ -15,6 +15,7 @@ export default function RenderCart({ products, cart, removeFromCart, incrementAm
   return (
     <div className='cart'>
       <h1>My Cart</h1>
+      <div className='underline'></div>
       <div className='products'>
       {cart.map((product, index) => (
         <div className='product' key={index}>
@@ -35,7 +36,7 @@ export default function RenderCart({ products, cart, removeFromCart, incrementAm
           <div className='total-product-price'> 
             <p>€ { totalPriceProduct(index) } </p>
           </div>
-          <div className='total-product-price'> 
+          <div className='delete-product'> 
             <button onClick={ () => removeFromCart(product)}>X</button>
           </div>
       </div>

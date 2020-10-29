@@ -1,0 +1,60 @@
+@import "colors";
+@import "characterStyles";
+
+body{
+  color: $drkGreen;
+}
+
+.cart {
+  margin: 0;
+  padding: 0;
+  background-image: url("./assets/bgHeader@2x.png");
+  background-size: cover;
+
+  h1 {
+    @include title;
+    padding-left: 10%
+  }
+
+  .underline {
+    margin-left: 10%;
+    width: 300px;
+    border-bottom: 3px solid $drkGreen;
+  }
+}
+
+.product {
+  padding: 20px 10%;
+  display: grid;
+  grid-template-columns: 10% auto 20% 20% 12% 6%;
+}
+
+.product-image {
+  img {
+    width: 80px;
+  }
+}
+
+.product-qty {
+  padding-top: 16px;
+
+  button {
+    display: inline;
+  }
+
+  p {
+    display: inline;
+    padding: 0 24px;
+  }
+  
+}
+
+.delete-product {
+  padding-top: 16px;
+}
+
+.checkout {
+  background-color: $lgtLila;
+
+  margin: 0;
+}

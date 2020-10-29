@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+$body: 'Baskervville', serif;
+
+@mixin title {
+  font-family: 'Baskervville', serif;
+  font-size: 50px;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RenderProducts from './components/RenderProducts'
 import RenderCart from './components/RenderCart'
+import './styles/cart.css';
 
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
@@ -12,13 +13,13 @@ function App() {
   const [products] = useState([
     {name: 'Custom Soap 1',
      price: '9.99', 
-     image: '',
+     image: './assets/soap1.jpg',
      amount: 1,
      id: 1,
     },
     {name: 'Custom Soap 2',
      price: '8.99', 
-     image: '',
+     image: './assets/soap2.jpg',
      amount: 1,
      id: 2,
     }
